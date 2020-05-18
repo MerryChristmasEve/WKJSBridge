@@ -1,4 +1,4 @@
-![QQ群](https://upload-images.jianshu.io/upload_images/1483880-34c3a2433738483a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/240)
+![wkJSBridge.gif](https://upload-images.jianshu.io/upload_images/1483880-359d43dfb0a32e16.gif?imageMogr2/auto-orient/strip)
 #前言
 **WKWebView**是iOS8 出来的浏览器控件,用来取代**UIWebView**
 现在2020年 苹果已经不建议使用**UIWebView**了，所以需要把原来用到的换成**WKWebView**
@@ -101,5 +101,6 @@ var params = {
 JSBridge.callAPI("getNativeInfo", params, res => {
     document.getElementById('div2').innerHTML = res;
 });
+>QQ群227866345
 ```
-
+![QQ群](https://upload-images.jianshu.io/upload_images/1483880-34c3a2433738483a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/240)
