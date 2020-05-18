@@ -35,33 +35,15 @@
     btn.tag = 1;
     [self.view addSubview:btn];
     [btn addTarget:self action:@selector(testMethod:) forControlEvents:UIControlEventTouchUpInside];
-    UIButton *btn2 = [[UIButton alloc] init];
-    btn2.frame = CGRectMake(self.view.frame.size.width-100, 500, 100, 50);
-    btn2.backgroundColor = [UIColor lightGrayColor];
-    [btn2 setTitle:@"给回调2" forState:UIControlStateNormal];
-    btn2.titleLabel.font = [UIFont systemFontOfSize:14];
-    btn2.layer.masksToBounds = YES;
-    btn2.tag =2;
-    [self.view addSubview:btn2];
-    [btn2 addTarget:self action:@selector(testMethod:) forControlEvents:UIControlEventTouchUpInside];
     
     NSString *url = [NSString stringWithFormat:@"file://%@",[[NSBundle mainBundle] pathForResource:@"test" ofType:@"html"]];
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
 }
 - (void)testMethod:(UIButton *)sender
 {
-    if (sender.tag == 1)
-    {
-        NSString *random = [NSString stringWithFormat:@"回调%d",arc4random() % 100];
-        NSString *random2 = [NSString stringWithFormat:@"回调%d",arc4random() % 100];
-        [ZLJSCoreBridge getNativeCallBack:@{random:random2} wkWwebView:self.wkWebView];
-    }
-    else if (sender.tag == 2)
-    {
-        NSString *random = [NSString stringWithFormat:@"回调222222__%d",arc4random() % 100];
-        NSString *random2 = [NSString stringWithFormat:@"回调222222__%d",arc4random() % 100];
-        [ZLJSCoreBridge testCallBack:@{random:random2} wkwebView:self.wkWebView];
-    }
+    NSString *random = [NSString stringWithFormat:@"回调%d",arc4random() % 100];
+    NSString *random2 = [NSString stringWithFormat:@"回调%d",arc4random() % 100];
+    [ZLJSCoreBridge getNativeCallBack:@{random:random2} wkWwebView:self.wkWebView];
 }
 
 
