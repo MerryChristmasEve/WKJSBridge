@@ -101,6 +101,6 @@ var params = {
 JSBridge.callAPI("getNativeInfo", params, res => {
     document.getElementById('div2').innerHTML = res;
 });
->QQ群227866345
 ```
+>QQ群227866345
 ![QQ群](https://upload-images.jianshu.io/upload_images/1483880-34c3a2433738483a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/240)
