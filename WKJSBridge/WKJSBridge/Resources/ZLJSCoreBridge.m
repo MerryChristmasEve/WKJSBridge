@@ -10,27 +10,23 @@
 
 
 @implementation ZLJSCoreBridge
-+ (void)getNativeInfo:(NSDictionary *)params :(NSString *)callBackID
+
+
++ (void)getNativeInfo:(NSDictionary *)params callBackID:(nonnull NSString *)callBackID
 {
     [ZLJSCoreBridge sharedInstance].getNativeInfoCBid = callBackID;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"js传递过来的参数"message:[NSString stringWithFormat:@"%@",params] preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [[[UIApplication sharedApplication] windows].firstObject.rootViewController presentViewController:alertController animated:YES completion:^{
+        
+    }];
     NSLog(@"getNativeInfo %@  callBackID:%@",params,callBackID);
 }
 + (void)getNativeCallBack:(id)response wkWwebView:(WKWebView *)wkWebview
 {
     [self callBackWithCallBackID:[ZLJSCoreBridge sharedInstance].getNativeInfoCBid callParams:response webView:wkWebview];
-}
-
-
-
-+ (void)test:(NSDictionary *)params :(NSString *)callBackID
-{
-    [ZLJSCoreBridge sharedInstance].testCBID = callBackID;
-    NSLog(@"test params%@ callBackID:%@", params, callBackID);
-}
-
-+ (void)testCallBack:(id)rsp wkwebView:(WKWebView *)wkWebView
-{
-    [self callBackWithCallBackID:[ZLJSCoreBridge sharedInstance].testCBID  callParams:rsp webView:wkWebView];
 }
 
 

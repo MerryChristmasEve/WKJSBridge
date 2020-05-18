@@ -50,7 +50,7 @@
                     params:(NSDictionary *)params
                 callBackID:(NSString *)callBackID
 {
-    funcName = [NSString stringWithFormat:@"%@::",funcName];
+    funcName = [NSString stringWithFormat:@"%@:callBackID:",funcName];
     SEL selector =NSSelectorFromString(funcName);
     Class realHandler = NSClassFromString(plugin);
     if ([realHandler respondsToSelector:selector])

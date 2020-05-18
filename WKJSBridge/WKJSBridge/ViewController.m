@@ -41,8 +41,8 @@
 }
 - (void)testMethod:(UIButton *)sender
 {
-    NSString *random = [NSString stringWithFormat:@"回调%d",arc4random() % 100];
-    NSString *random2 = [NSString stringWithFormat:@"回调%d",arc4random() % 100];
+    NSString *random = [NSString stringWithFormat:@"native回调%d",arc4random() % 100];
+    NSString *random2 = [NSString stringWithFormat:@"native回调%d",arc4random() % 100];
     [ZLJSCoreBridge getNativeCallBack:@{random:random2} wkWwebView:self.wkWebView];
 }
 
@@ -55,7 +55,7 @@
         WKUserContentController * userContent = [[WKUserContentController alloc]init];
         WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
         configuration.userContentController = userContent;
-        WKUserScript *usrScript = [[WKUserScript alloc] initWithSource:[ZLJSBridge handlerJS] injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+        WKUserScript *usrScript = [[WKUserScript alloc] initWithSource:[ZLJSBridge handlerJS] injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
         [userContent addUserScript:usrScript];
         [userContent addScriptMessageHandler:self.ZL_JSBridge  name:ZLJSBridgeName];
         _wkWebView = [[WKWebView alloc]initWithFrame:[UIScreen mainScreen].bounds configuration:configuration];

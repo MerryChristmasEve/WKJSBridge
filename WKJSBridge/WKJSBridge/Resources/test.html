@@ -46,7 +46,7 @@
 
 		<div style="margin-top: 100px">
 			<h1 style="color: red;"> WKwebview H5与OC交互</h1><br />
-			<div class="div1"><input type="button" value="调用原生方法" onclick="getInfoFromNative()"></div>
+			<div class="div1"><input type="button" value="调用参数 name : hello world " onclick="getInfoFromNative()"></div>
 			<br />
 			<div id="div2"></div>
 
@@ -61,15 +61,7 @@
 
 				JSBridge.callAPI("getNativeInfo", params, res => {
 					document.getElementById('div2').innerHTML = res;
-				});
-			}
-			function testNative(){
-				var params = {
-					'name': 'hello world test222222!!!'
-				};
-				
-				JSBridge.callAPI("test", params, res => {
-					document.getElementById('div2').innerHTML = res;
+                    
 				});
 			}
 
