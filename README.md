@@ -97,7 +97,8 @@ getNativeInfo为暴露给JS的方法名  后面拼的callBackID为demo中写好�
 var params = {
     'name': 'hello world jack!!!'
 };
-//getNativeInfo为约定好的方法名 params为参数  res为给的回调内容
+//getNativeInfo为约定好的方法名 params为参数  res为给的回调内容 
+//res格式为jsonString 如果需要用json对象的话需要用JSON.parse(res)转义一下
 JSBridge.callAPI("getNativeInfo", params, res => {
     document.getElementById('div2').innerHTML = res;
 });
